@@ -1,0 +1,32 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin: 10px 30px;
+  display: inline;
+}
+
+a:hover {
+  border-bottom: 1px solid #fff;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.render {
+  flex-grow: 1;
+}
