@@ -3,6 +3,7 @@ import "./OptionsContainer.css"
 
 class OptionsContainer extends Component {
   render() {
+    let inputNum = this.props.inputNum
     return(
       <div>
         <div className="options">
@@ -10,9 +11,7 @@ class OptionsContainer extends Component {
             <h2>Scaffold some lipsum</h2>
             <div><h3>Number of paragraphs</h3>
               <div className="num">
-                <input value="3"></input>
-                <button id="less">-</button>
-                <button id="more">+</button>
+                <input type="number" placeholder="3">{inputNum}</input>
               </div>
             </div>
             <button id="generate">Generate</button>

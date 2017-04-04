@@ -32,10 +32,10 @@ input {
   height: 50px;
   border: 0;
   padding: 0;
+  margin: 10px 80px;
   text-align: center;
   font-size: 1.5em;
   flex-grow: 1;
-  margin-right: 5px;
   color: #434443;
   background-color: #DDDEDD;
 }
@@ -46,8 +46,10 @@ input {
   justify-content: space-around;
 }
 
-.options-wrapper {
-
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #generate {

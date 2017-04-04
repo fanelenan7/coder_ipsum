@@ -1,0 +1,20 @@
+[
+  {"body": "Progressive enhancement"},
+  {"body": "functionality"},
+  {"body": "presentation layer"},
+  {"body": "server-side rendering"},
+  {"body": "interactive portions"},
+  {"body": "functional experience"},
+  {"body": "code sharing"},
+  {"body": "render content"},
+  {"body": "baked-in support"},
+  {"body": "perceived user experience"},
+  {"body": "passed as props"},
+  {"body": "browsers support"},
+  {"body": "object-level format"},
+  {"body": "mapping to the current route"},
+  {"body": "load up data"},
+  {"body": "shipped down"},
+  {"body": "route-based chunking"},
+  {"body": "populate bootup data"}
+]
