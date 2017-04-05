@@ -3,6 +3,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  height: 10vh;
 }
 
 h1 {

@@ -17,7 +17,7 @@ class Home extends Component {
       snippets: Data,
       output: null,
       generated: false,
-      inputNum: null
+      inputNum: ""
     }
   }
 
@@ -29,15 +29,15 @@ class Home extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    let data = Data
+    let lipsum = []
+    for(let i=0; i < 50; i++) {
+      lipsum.push(data[Math.floor(Math.random() * data.length)])
+    }
     this.setState({
-      output: createLipsum,
+      output: lipsum.join(" "),
       generated: true
     })
-  }
-
-  createLipsum() {
-    let lipsum = snippets
-    _.times(1000, lipsum[Math.floor(Math.random() * lipsum.length)]
   }
 
   printOutput() {
@@ -63,8 +63,8 @@ class Home extends Component {
               exact path="/"
               render={() => <OptionsContainer
                 inputNum={this.state.inputNum}
-                onInput={(e) => this.handleInput(e)}
-                onSubmit={(e) => this.handleSubmit(e)}
+                onFormInput={(e) => this.handleInput(e)}
+                onFormSubmit={(e) => this.handleSubmit(e)}
               />}
             />
             <Route
