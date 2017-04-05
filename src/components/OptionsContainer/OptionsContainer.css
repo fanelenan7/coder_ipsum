@@ -21,6 +21,10 @@
   margin-right: 4px;
 }
 
+.generate-button:hover {
+  border: 0;
+}
+
 form {
   display: flex;
   flex-direction: column;

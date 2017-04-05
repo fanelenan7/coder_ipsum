@@ -15,6 +15,7 @@ a {
   color: inherit;
   margin: 10px 30px;
   display: inline;
+  /*border-bottom: 1px solid #fff;*/
 }
 
 a:hover {

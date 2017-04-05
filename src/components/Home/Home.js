@@ -28,12 +28,15 @@ class Home extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-    let data = Data
+    // e.preventDefault()
+    let data = Data.map((text) => {
+      return text.body
+    })
     let lipsum = []
     for(let i=0; i < 50; i++) {
       lipsum.push(data[Math.floor(Math.random() * data.length)])
     }
+    console.log(lipsum);
     this.setState({
       output: lipsum.join(" "),
       generated: true
@@ -41,11 +44,15 @@ class Home extends Component {
   }
 
   printOutput() {
-    return(
-      <Output
-        output={this.state.output}
-      />
-    )
+    let i = 0
+    for(i = 0; i < this.state.inputNum; i++){
+      return(
+        <Output
+          output={this.state.output}
+          onFormSubmit={() => this.handleSubmit()}
+        />
+      )
+    }
   }
 
   render() {
@@ -53,30 +60,28 @@ class Home extends Component {
       <Router>
         <div className="render">
           <nav>
-            <h1><Link to="#">Coder_Ipsum</Link></h1>
-            <Link to="/type=random">invoke</Link>
-            <Link to="/">return</Link>
+            <h1><Link to="/home">Coder_Ipsum</Link></h1>
+            <Link to="/home">return</Link>
             <Link to="https://github.com/fanelenan7/coder_ipsum">github</Link>
           </nav>
           <main>
             <Route
-              exact path="/"
+              path="/home"
               render={() => <OptionsContainer
                 inputNum={this.state.inputNum}
                 onFormInput={(e) => this.handleInput(e)}
-                onFormSubmit={(e) => this.handleSubmit(e)}
-              />}
-            />
+              />
+          // }
+            }
+              />
             <Route
               path="/type=random"
-              render={() => <Output
-                snippets={this.state.snippets}
-              />}
+              render={() => this.printOutput()}
             />
             <Route
               path="/*"
               render={() => {
-                return <Redirect to="/" />
+                return <Redirect to="/home" />
               }}
             />
           </main>
