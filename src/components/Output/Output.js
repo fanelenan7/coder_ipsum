@@ -2,14 +2,11 @@ import React, {Component} from "react"
 import "./Output.css"
 
 class Output extends Component {
-  componentWillMount() {
-    this.props.onFormSubmit()
-  }
   render() {
-    console.log(this.props.output);
+    console.log(this.props.oneParagraph);
     return(
-      <div className="outputContainer">
-        <div className="output">{this.props.output}</div>
+      <div>
+        <div className="output">{this.props.oneParagraph}</div>
       </div>
     )
   }

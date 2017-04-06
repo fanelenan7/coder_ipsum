@@ -5,9 +5,11 @@ import  {
   Link,
   Redirect
 } from "react-router-dom"
+import favicon from "../../../public/C_I copy.png"
 import Data from "../../../data.json"
 import OptionsContainer from "../OptionsContainer/OptionsContainer.js"
-import Output from "../Output/Output.js"
+// import Output from "../Output/Output.js"
+import OutputContainer from "../OutputContainer/OutputContainer.js"
 import './Home.css'
 
 class Home extends Component {
@@ -16,6 +18,7 @@ class Home extends Component {
     this.state = {
       snippets: Data,
       output: null,
+      paragraphs: null,
       generated: false,
       inputNum: ""
     }
@@ -28,31 +31,38 @@ class Home extends Component {
   }
 
   handleSubmit(e) {
-    // e.preventDefault()
+    e.preventDefault()
     let data = Data.map((text) => {
       return text.body
     })
-    let lipsum = []
-    for(let i=0; i < 50; i++) {
-      lipsum.push(data[Math.floor(Math.random() * data.length)])
+
+    let paragraphArray = []
+    for (let i = 0; i < this.state.inputNum; i++){
+      let lipsum = []
+      for (let j = 0; j < 40; j++) {
+        lipsum.push(data[Math.floor(Math.random()* data.length)])
+        if(!((j+1)%4)){
+          lipsum[j]=lipsum[j]+"."
+        }
+        if(!(j%4)){
+            lipsum[j]=lipsum[j].charAt(0).toUpperCase() + lipsum[j].slice(1)
+          }
+        }
+
+      paragraphArray.push(lipsum.join(" "))
     }
-    console.log(lipsum);
     this.setState({
-      output: lipsum.join(" "),
+      output: paragraphArray,
       generated: true
     })
   }
 
   printOutput() {
-    let i = 0
-    for(i = 0; i < this.state.inputNum; i++){
-      return(
-        <Output
-          output={this.state.output}
-          onFormSubmit={() => this.handleSubmit()}
-        />
-      )
-    }
+    return <OutputContainer
+        inputNum={this.state.inputNum}
+        output={this.state.output}
+        onFormSubmit={() => this.handleSubmit()}
+    />
   }
 
   render() {
@@ -70,13 +80,17 @@ class Home extends Component {
               render={() => <OptionsContainer
                 inputNum={this.state.inputNum}
                 onFormInput={(e) => this.handleInput(e)}
+                onFormSubmit={(e) => this.handleSubmit(e)}
               />
-          // }
             }
               />
             <Route
               path="/type=random"
-              render={() => this.printOutput()}
+              render={() => {
+              return (
+                <div>{this.printOutput()}</div>
+              )
+            }}
             />
             <Route
               path="/*"

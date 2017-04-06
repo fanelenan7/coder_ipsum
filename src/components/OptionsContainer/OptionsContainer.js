@@ -20,7 +20,10 @@ class OptionsContainer extends Component {
 
             </div>
 
-            <Link className="generate-button" to="/type=random"><button type="submit" id="generate">Generate</button></Link>
+              <button type="submit" id="generate">Generate</button>
+              <Link className="generate-button" to="/type=random">
+              link
+              </Link>
 
           </form>
         </div>
