@@ -79,7 +79,7 @@ class Home extends Component {
           <nav>
             <h1><Link to="/home">Coder_Ipsum</Link></h1>
             <Link to="/home">return</Link>
-            <Link to="https://github.com/fanelenan7/coder_ipsum">github</Link>
+            <a href="https://github.com/fanelenan7/coder_ipsum">github</a>
           </nav>
           <main>
             <Route
