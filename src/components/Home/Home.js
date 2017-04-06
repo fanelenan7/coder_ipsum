@@ -62,7 +62,14 @@ class Home extends Component {
         inputNum={this.state.inputNum}
         output={this.state.output}
         onFormSubmit={() => this.handleSubmit()}
+        clearGenerate={() => this.clearGenerate()}
     />
+  }
+
+  clearGenerate() {
+    this.setState({
+      generated: false
+    })
   }
 
   render() {
@@ -77,20 +84,24 @@ class Home extends Component {
           <main>
             <Route
               path="/home"
-              render={() => <OptionsContainer
+              render={() => {
+                if(this.state.generated){
+                  return <Redirect to="/type=random" />
+                }
+                return <OptionsContainer
                 inputNum={this.state.inputNum}
                 onFormInput={(e) => this.handleInput(e)}
                 onFormSubmit={(e) => this.handleSubmit(e)}
-              />
+              />}
             }
               />
             <Route
               path="/type=random"
               render={() => {
-              return (
-                <div>{this.printOutput()}</div>
-              )
-            }}
+                return (
+                  <div>{this.printOutput()}</div>
+                )
+              }}
             />
             <Route
               path="/*"

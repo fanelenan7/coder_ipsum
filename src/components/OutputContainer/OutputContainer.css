@@ -1,6 +1,6 @@
 .outputContainer {
   width: 60vw;
-  height: 70vh;
+  height: 80vh;
   margin: 30px;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -13,5 +13,5 @@
 
 li {
   list-style: none;
-  margin: 15px;
+  margin: 10px;
 }

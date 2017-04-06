@@ -3,6 +3,10 @@ import Output from "../Output/Output.js"
 import "./OutputContainer.css"
 
 class OutputContainer extends Component{
+  componentDidMount() {
+    this.props.clearGenerate()
+  }
+
   render() {
     let printAllParagraphs = this.props.output.map((paragraph, index) => {
       return <li key={index}><Output
