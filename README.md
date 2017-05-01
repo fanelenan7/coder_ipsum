@@ -1,4 +1,4 @@
-#Coder_Ipsum
+**Coder_Ipsum**
 
 Project 4 for General Assembly Web Development Immersive.
 
