@@ -5,10 +5,8 @@ import  {
   Link,
   Redirect
 } from "react-router-dom"
-import favicon from "../../../public/C_I copy.png"
 import Data from "../../../data.json"
 import OptionsContainer from "../OptionsContainer/OptionsContainer.js"
-// import Output from "../Output/Output.js"
 import OutputContainer from "../OutputContainer/OutputContainer.js"
 import './Home.css'
 
@@ -77,13 +75,13 @@ class Home extends Component {
       <Router>
         <div className="render">
           <nav>
-            <h1><Link to="/home">Coder_Ipsum</Link></h1>
-            <Link to="/home">return</Link>
+            <h1><Link to="/coder_ipsum">Coder_Ipsum</Link></h1>
+            <Link to="/coder_ipsum">return</Link>
             <a href="https://github.com/fanelenan7/coder_ipsum">github</a>
           </nav>
           <main>
             <Route
-              path="/home"
+              path="/coder_ipsum"
               render={() => {
                 if(this.state.generated){
                   return <Redirect to="/type=random" />
@@ -106,7 +104,7 @@ class Home extends Component {
             <Route
               path="/*"
               render={() => {
-                return <Redirect to="/home" />
+                return <Redirect to="/coder_ipsum" />
               }}
             />
           </main>
